@@ -1,4 +1,5 @@
 ﻿using SimpleSnake.GameObjects.Foods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,13 +8,17 @@ namespace SimpleSnake.GameObjects
     public class Snake
     {
         private const char SnakeSymbol = '\u25cf';
+        private const char EmptySpace = ' ';
 
         private readonly Wall wall;
         private readonly Queue<Point> snakeElements;
         private readonly List<Food> foods;
+
         private int nextLeftX;
         private int nextTopY;
         private int foodIndex;
+        private int RandomFoodNumber => 
+            new Random().Next(0, foods.Count);
 
         public Snake()
         {
@@ -60,12 +65,29 @@ namespace SimpleSnake.GameObjects
 
             if (foods[foodIndex].IsFoodPoint(newSnakeHead))
             {
-
                 Eat(direction,currentSnakeHead);
-
             }
 
+            Point snakeTail = snakeElements.Dequeue();
+            snakeTail.Draw(EmptySpace);
+
             return true;
+
+        }
+        private void Eat(Point direction, Point currentSnakeHead)
+        {
+
+            int lenght = foods[foodIndex].FoodPoints;
+
+            for(int i = 0; i < lenght; i++)
+            {
+                Point evenNewerSnakeBody = new Point(nextLeftX,nextTopY);
+                snakeElements.Enqueue(evenNewerSnakeBody);
+                GetNextPoint(direction, currentSnakeHead);
+            }
+
+            foodIndex = RandomFoodNumber;
+            foods[foodIndex].SetRandomPosition(snakeElements);
 
         }
         private void GetNextPoint(Point direction, Point snakeHead)
