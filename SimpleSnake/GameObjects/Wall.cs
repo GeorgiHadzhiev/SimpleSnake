@@ -13,6 +13,14 @@
 
         }
 
+        public bool IsPointOfWall(Point snakeHead)
+        {
+
+            return snakeHead.TopY == 0 || snakeHead.LeftX == 0 ||
+                snakeHead.LeftX == this.LeftX - 1 || snakeHead.TopY == this.TopY;
+
+        }
+
         private void InitializeWallBoarders()
         {
             SetHorizontalLine(0);
