@@ -1,5 +1,6 @@
 ﻿using SimpleSnake.GameObjects.Foods;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleSnake.GameObjects
 {
@@ -36,10 +37,21 @@ namespace SimpleSnake.GameObjects
             foods[1] = new FoodDollar(wall);
             foods[2] = new FoodAsterisk(wall);
         }
-        private bool IsMoving()
+        private bool IsMoving(Point direction)
         {
 
+            Point currentSnakeHead = snakeElements.Last();
+            GetNextPoint(direction,currentSnakeHead);
 
+            bool IsPointOfSnake = snakeElements
+                .Any(se => se.LeftX == nextLeftX && se.TopY == nextTopY);
+
+
+            if (IsPointOfSnake) return false;
+
+            Point newSnakeHead = new Point(nextLeftX,nextTopY);
+
+            return true;
 
         }
         private void GetNextPoint(Point direction, Point snakeHead)
