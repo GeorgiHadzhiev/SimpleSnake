@@ -2,6 +2,7 @@
 {
     using SimpleSnake.Core;
     using SimpleSnake.Core.Interfaces;
+    using SimpleSnake.GameObjects;
     using Utilities;
 
     public class StartUp
@@ -9,7 +10,11 @@
         public static void Main()
         {
             ConsoleWindow.CustomizeConsole();
-            IEngine engine = new Engine();
+
+            Wall wall = new Wall(60, 20);
+            Snake snake = new Snake(wall);
+
+            IEngine engine = new Engine(wall,snake);
             engine.Run();
         }
     }
