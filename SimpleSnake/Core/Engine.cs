@@ -13,7 +13,7 @@ namespace SimpleSnake.Core
 
             Wall wall = new Wall(60, 20);
 
-            FoodDollar food = new(wall);
+            FoodDollar food = new FoodDollar(wall);
             food.SetRandomPosition(new Queue<Point>());
             
 
