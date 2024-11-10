@@ -5,6 +5,9 @@
     <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
     <StartupObject>SimpleSnake.StartUp</StartupObject>
     <ApplicationIcon>22285snake_98774.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
