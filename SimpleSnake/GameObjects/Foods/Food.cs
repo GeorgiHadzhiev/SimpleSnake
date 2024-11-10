@@ -49,9 +49,5 @@ namespace SimpleSnake.GameObjects.Foods
         public bool IsFoodPoint(Point snakeHead) 
             => snakeHead.LeftX == LeftX && snakeHead.TopY == TopY;
 
-        
-
-
-
     }
 }

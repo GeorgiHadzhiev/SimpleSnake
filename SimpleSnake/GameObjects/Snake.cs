@@ -27,6 +27,7 @@ namespace SimpleSnake.GameObjects
             foods = new List<Food>();
             foodIndex = RandomFoodNumber;
             GetFoods();
+            SpawnFood();
             CreateSnake();
         }
 
@@ -81,16 +82,20 @@ namespace SimpleSnake.GameObjects
 
             int lenght = foods[foodIndex].FoodPoints;
 
-            for(int i = 0; i < lenght; i++)
+            for (int i = 0; i < lenght; i++)
             {
-                Point evenNewerSnakeBody = new Point(nextLeftX,nextTopY);
+                Point evenNewerSnakeBody = new Point(nextLeftX, nextTopY);
                 snakeElements.Enqueue(evenNewerSnakeBody);
                 GetNextPoint(direction, currentSnakeHead);
             }
 
+            SpawnFood();
+
+        }
+        private void SpawnFood()
+        {
             foodIndex = RandomFoodNumber;
             foods[foodIndex].SetRandomPosition(snakeElements);
-
         }
         private void GetNextPoint(Point direction, Point snakeHead)
         {
