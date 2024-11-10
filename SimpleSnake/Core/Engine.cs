@@ -108,10 +108,16 @@ namespace SimpleSnake.Core
                 Console.Clear();
                 StartUp.Main();
             }
-            else
+            else if(input == "n")
             {
 
                 StopGame();
+
+            }
+            else
+            {
+
+                AskUserForRestart();
 
             }
         }
@@ -119,6 +125,7 @@ namespace SimpleSnake.Core
         {
             Console.SetCursorPosition(20, 10);
             Console.Write("Game Over!");
+            Console.WriteLine("\n");
             Environment.Exit(0);
         }
     }
