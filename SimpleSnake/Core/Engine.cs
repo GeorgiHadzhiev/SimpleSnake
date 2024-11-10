@@ -11,10 +11,11 @@ namespace SimpleSnake.Core
         private Direction direction;
         private Point[] pointsOfDirection;
         private Snake snake;
+        private Wall wall;
 
         public Engine()
         {
-            pointsOfDirection = new Point[4];    
+            pointsOfDirection = new Point[4];
         }
 
         public void Run()
@@ -66,6 +67,33 @@ namespace SimpleSnake.Core
 
             Console.CursorVisible = false;
 
+        }
+        private void AskUserForRestart()
+        {
+
+            int leftX = wall.LeftX + 1;
+            int topY = 3;
+
+            Console.SetCursorPosition(leftX, topY);
+            Console.Write("Would you like to continue? y/n");
+
+            string input = Console.ReadLine();
+            if (input == "y")
+            {
+                Console.Clear();
+                StartUp.Main();
+            }
+            else
+            {
+
+                StopGame();
+
+            }
+        }
+
+        private void StopGame()
+        {
+            
         }
     }
 }
