@@ -10,6 +10,7 @@ namespace SimpleSnake.Core
     {
         private Direction direction;
         private Point[] pointsOfDirection;
+        private Snake snake;
 
         public Engine()
         {
@@ -18,8 +19,8 @@ namespace SimpleSnake.Core
 
         public void Run()
         {
-            
 
+            bool isMoving = snake.IsMoving(pointsOfDirection[(int)direction]);
             
         }
         private void CreateDirection()

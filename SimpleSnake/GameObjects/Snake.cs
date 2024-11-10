@@ -46,7 +46,7 @@ namespace SimpleSnake.GameObjects
             foods[1] = new FoodDollar(wall);
             foods[2] = new FoodAsterisk(wall);
         }
-        private bool IsMoving(Point direction)
+        public bool IsMoving(Point direction)
         {
 
             Point currentSnakeHead = snakeElements.Last();
