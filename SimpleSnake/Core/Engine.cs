@@ -91,9 +91,11 @@ namespace SimpleSnake.Core
             }
         }
 
-        private void StopGame()
+        private static void StopGame()
         {
-            
+            Console.SetCursorPosition(20, 10);
+            Console.Write("Game Over!");
+            Environment.Exit(0);
         }
     }
 }
