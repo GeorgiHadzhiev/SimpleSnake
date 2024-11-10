@@ -17,10 +17,10 @@ namespace SimpleSnake.Core
 
         public Engine(Wall wall, Snake snake)
         {
-            pointsOfDirection = new Point[4];
-            sleepTime = 100;
             this.wall = wall;
             this.snake = snake;
+            pointsOfDirection = new Point[4];
+            sleepTime = 100;
         }
 
         public void Run()
@@ -100,7 +100,7 @@ namespace SimpleSnake.Core
             int topY = 3;
 
             Console.SetCursorPosition(leftX, topY);
-            Console.Write("Would you like to continue? y/n");
+            Console.Write("Would you like to restart? y/n");
 
             string input = Console.ReadLine();
             if (input == "y")
