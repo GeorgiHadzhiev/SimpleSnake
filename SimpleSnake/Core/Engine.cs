@@ -99,7 +99,7 @@ namespace SimpleSnake.Core
             int leftX = wall.LeftX + 1;
             int topY = 5;
             Console.SetCursorPosition(leftX, topY);
-            Console.Write("   Would you like to restart? y/n    ");
+            Console.Write("  Would you like to restart? y/n  ");
 
             int leftXOffSet = leftX + 19;
             int topYOffSet = topY + 5;
