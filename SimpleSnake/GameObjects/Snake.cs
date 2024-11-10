@@ -42,9 +42,9 @@ namespace SimpleSnake.GameObjects
         }
         private void GetFoods()
         {
-            foods[0] = new FoodHash(wall);
-            foods[1] = new FoodDollar(wall);
-            foods[2] = new FoodAsterisk(wall);
+            foods.Add(new FoodHash(wall));
+            foods.Add(new FoodDollar(wall));
+            foods.Add(new FoodAsterisk(wall));
         }
         public bool IsMoving(Point direction)
         {
