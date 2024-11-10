@@ -97,30 +97,36 @@ namespace SimpleSnake.Core
         {
 
             int leftX = wall.LeftX + 1;
-            int topY = 3;
-
+            int topY = 5;
             Console.SetCursorPosition(leftX, topY);
-            Console.Write("Would you like to restart? y/n");
+            Console.Write("   Would you like to restart? y/n    ");
+
+            int leftXOffSet = leftX + 19;
+            int topYOffSet = topY + 5;
+
+            Console.SetCursorPosition(leftXOffSet, topYOffSet);
+            Console.Write("Player: ");
+            Console.CursorVisible = true;
 
             string input = Console.ReadLine();
+
             if (input == "y")
             {
                 Console.Clear();
                 StartUp.Main();
             }
-            else if(input == "n")
+            else if (input == "n")
             {
-
                 StopGame();
-
             }
             else
             {
-
+                Console.SetCursorPosition(leftXOffSet, topYOffSet + 1);
+                Console.Write("Invalid command. Try again.");
                 AskUserForRestart();
-
             }
         }
+
         private static void StopGame()
         {
             Console.SetCursorPosition(20, 10);
