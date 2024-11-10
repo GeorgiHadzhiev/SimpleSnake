@@ -2,6 +2,7 @@
 using SimpleSnake.Enums;
 using SimpleSnake.GameObjects;
 using System;
+using System.Threading;
 
 
 namespace SimpleSnake.Core
@@ -12,16 +13,40 @@ namespace SimpleSnake.Core
         private Point[] pointsOfDirection;
         private Snake snake;
         private Wall wall;
+        private double sleepTime;
 
-        public Engine()
+        public Engine(Wall wall, Snake snake)
         {
             pointsOfDirection = new Point[4];
+            sleepTime = 100;
+            this.wall = wall;
+            this.snake = snake;
         }
 
         public void Run()
         {
 
-            bool isMoving = snake.IsMoving(pointsOfDirection[(int)direction]);
+            CreateDirection();
+
+            while (true) 
+            {
+
+                if (Console.KeyAvailable)
+                {
+                    GetNextDirection();
+                }
+
+                bool isMoving = snake.IsMoving(pointsOfDirection[(int)direction]);
+
+                if (!isMoving)
+                {
+                    AskUserForRestart();
+                }
+
+                sleepTime -= 0.01;
+                Thread.Sleep((int)sleepTime);
+
+            }
             
         }
         private void CreateDirection()
@@ -90,7 +115,6 @@ namespace SimpleSnake.Core
 
             }
         }
-
         private static void StopGame()
         {
             Console.SetCursorPosition(20, 10);
