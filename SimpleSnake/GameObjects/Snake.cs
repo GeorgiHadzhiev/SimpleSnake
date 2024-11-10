@@ -6,11 +6,14 @@ namespace SimpleSnake.GameObjects
 {
     public class Snake
     {
+        private const char SnakeSymbol = '\u25cf';
+
         private readonly Wall wall;
         private readonly Queue<Point> snakeElements;
         private readonly List<Food> foods;
         private int nextLeftX;
         private int nextTopY;
+        private int foodIndex;
 
         public Snake()
         {
@@ -49,6 +52,18 @@ namespace SimpleSnake.GameObjects
             if (IsPointOfSnake) return false;
 
             Point newSnakeHead = new Point(nextLeftX,nextTopY);
+
+            if(wall.IsPointOfWall(newSnakeHead)) return false;
+
+            snakeElements.Enqueue(newSnakeHead);
+            newSnakeHead.Draw(SnakeSymbol);
+
+            if (foods[foodIndex].IsFoodPoint(newSnakeHead))
+            {
+
+                Eat(direction,currentSnakeHead);
+
+            }
 
             return true;
 
