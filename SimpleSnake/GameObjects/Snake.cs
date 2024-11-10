@@ -25,9 +25,8 @@ namespace SimpleSnake.GameObjects
 
             for(int topY = 1; topY <= 6; topY++)
             {
-
-                snakeElements.Enqueue(new Point(2, topY));
-
+                Point snakeBody = new Point(2, topY);
+                snakeElements.Enqueue(snakeBody);
             }
 
         }
