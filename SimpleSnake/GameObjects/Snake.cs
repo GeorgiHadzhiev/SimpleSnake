@@ -20,10 +20,15 @@ namespace SimpleSnake.GameObjects
         private int RandomFoodNumber => 
             new Random().Next(0, foods.Count);
 
-        public Snake()
+        public Snake(Wall wall)
         {
             
-            
+            this.wall = wall;
+            snakeElements = new Queue<Point>();
+            foods = new List<Food>();
+            foodIndex = RandomFoodNumber;
+            GetFoods();
+            CreateSnake();
 
         }
 
