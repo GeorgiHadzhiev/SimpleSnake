@@ -126,7 +126,6 @@ namespace SimpleSnake.Core
                 AskUserForRestart();
             }
         }
-
         private static void StopGame()
         {
             Console.SetCursorPosition(20, 10);

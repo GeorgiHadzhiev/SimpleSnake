@@ -29,16 +29,14 @@ namespace SimpleSnake.GameObjects.Foods
             LeftX = random.Next(2, wall.LeftX - 2);
             TopY = random.Next(2, wall.TopY - 2);
 
-            bool isPointOfSnake = snakeElement
-                .Any(x => x.LeftX == LeftX && x.TopY == TopY);
+            bool isPointOfSnake = snakeElement.Any(se=>IsFoodPoint(se));
 
             while (isPointOfSnake)
             {
                 LeftX = random.Next(2, wall.LeftX - 2);
                 TopY = random.Next(2, wall.TopY - 2);
 
-                isPointOfSnake = snakeElement
-                .Any(x => x.LeftX == LeftX && x.TopY == TopY);
+                isPointOfSnake = snakeElement.Any(se=>IsFoodPoint(se));
             }
 
             Console.BackgroundColor = ConsoleColor.Red;
