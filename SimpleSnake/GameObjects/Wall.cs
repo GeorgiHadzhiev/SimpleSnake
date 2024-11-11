@@ -30,7 +30,6 @@
             SetVerticalLine(LeftX - 1);
 
         }
-
         private void SetHorizontalLine(int topY)
         {
 
